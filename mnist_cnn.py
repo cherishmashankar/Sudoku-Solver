@@ -1,5 +1,6 @@
 from __future__ import print_function
 import keras
+import tensorflow as tf
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
@@ -50,7 +51,7 @@ model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.Adadelta(),
+              optimizer=tf.optimizers.Adadelta(),
               metrics=['accuracy'])
 
 model.fit(x_train, y_train,
